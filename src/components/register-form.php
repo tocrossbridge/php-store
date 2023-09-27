@@ -1,35 +1,60 @@
 <div>
-    <form>
+    <form action="./controllers/product.php" method="post">
         <h2 style="margin: 0">Cadastro de Produto</h2>
 
         <div class="form-group">
             <label>Nome do produto</label>
-            <input type="text" placeholder="Nome do produto" />
+            <input
+                required
+                name="produto"
+                type="text"
+                placeholder="Nome do produto"
+            />
         </div>
 
         <div class="form-group">
             <label>Selecione setor</label>
-            <select>
+            <select
+                required
+                name="setor"
+            >
                 <option>Blabla</option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Preço de custo</label>
-            <input type="text" placeholder="0.0" />
+            <input
+                required
+                name="preco_custo"
+                type="text"
+                placeholder="0.0"
+            />
         </div>
 
         <div class="form-group">
             <label>Preço de venda</label>
-            <input type="text" placeholder="0.0" />
+            <input
+                required
+                name="preco_venda"
+                type="text"
+                placeholder="0.0"
+            />
         </div>
 
         <div class="form-group">
             <label>Quantidade de caixas de estoque</label>
-            <input type="number" placeholder="Apenas números" />
+            <input
+                required
+                name="quantidade_estoque"
+                type="number"
+                placeholder="Apenas números"
+            />
         </div>
 
-        <button type="submit">
+        <button
+            type="submit"
+        >
             Salvar produto
         </button>
     </form>
