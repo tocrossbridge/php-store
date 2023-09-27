@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <th>Nome</th>
+        <th>Setor</th>
+        <th>Custo</th>
+        <th>Venda</th>
+        <th>Estoque</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>NaN</td>
+            <td>NaN</td>
+            <td>NaN</td>
+            <td>NaN</td>
+            <td>NaN</td>
+        </tr>
+    </tbody>
+</table>
