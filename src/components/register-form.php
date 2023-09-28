@@ -1,12 +1,12 @@
 <div>
-    <form action="./controllers/product.php" method="post">
+    <form action="src\save.php" method="post">
         <h2 style="margin: 0">Cadastro de Produto</h2>
 
         <div class="form-group">
             <label>Nome do produto</label>
             <input
                 required
-                name="produto"
+                name="nome_prod"
                 type="text"
                 placeholder="Nome do produto"
             />

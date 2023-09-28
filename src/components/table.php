@@ -1,6 +1,6 @@
 <?php
-    // $products = $_REQUEST['products'];
-    $products = [];
+    include "src/config.php";
+    $products = $conn->query('SELECT * FROM produtos');
 ?>
 
 <table>
@@ -12,15 +12,26 @@
         <th>Estoque</th>
     </thead>
     <tbody>
-
-    <?php foreach($products as $product): ?>
-        <tr>
-            <td>NaN</td>
-            <td>NaN</td>
-            <td>NaN</td>
-            <td>NaN</td>
-            <td>NaN</td>
-        </tr>
-        <?php endforeach; ?>
+    <?php
+        foreach($products as $product) {
+            echo "<tr style='text-align: center'>";
+                echo "<td>";
+                    print_r($product[1]);
+                echo "</td>";
+                echo "<td>";
+                    print_r($product[2]);
+                echo "</td>";
+                echo "<td>";
+                    print_r($product[3]);
+                echo "</td>";
+                echo "<td>";
+                    print_r($product[4]);
+                echo "</td>";
+                echo "<td>";
+                    print_r($product[5]);
+                echo "</td>";
+            echo "</tr>";
+        }
+    ?>
     </tbody>
 </table>
