@@ -20,6 +20,9 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `setores` (`id_set`, `nome_set`) VALUES (1, 'Legumes');
+INSERT INTO `setores` (`id_set`, `nome_set`) VALUES (2, 'Roupas');
+INSERT INTO `setores` (`id_set`, `nome_set`) VALUES (3, 'Eletrônicos');
+INSERT INTO `setores` (`id_set`, `nome_set`) VALUES (4, 'Outros');
 
 INSERT INTO `produtos` (`id_prod`, `nome_prod`, `custo_prod`, `venda_prod`, `estoque_prod`, `situacao_prod`, `setor_prod`) VALUES
 (1, 'Batata', 2.0, 2.5, 2, 1, 1);
