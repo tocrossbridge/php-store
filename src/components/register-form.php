@@ -1,61 +1,100 @@
-<div>
-    <form action="src\save.php" method="post">
-        <h2 style="margin: 0">Cadastro de Produto</h2>
+<form
+    action="src/save.php"
+    method="post"
+    id="registerForm"
+>
+    <legend>Cadastro de Produtos</legend>
 
-        <div class="form-group">
-            <label>Nome do produto</label>
-            <input
-                required
-                name="nome_prod"
-                type="text"
-                placeholder="Nome do produto"
-            />
-        </div>
+    <fieldset>
+        <label>Nome do produto</label>
+        <input
+            required
+            name="nome_prod"
+            type="text"
+            placeholder="Digite o nome do produto"
+        />
+    </fieldset>
 
-        <div class="form-group">
-            <label>Selecione setor</label>
-            <select
-                required
-                name="setor"
-            >
-                <option>Blabla</option>
-            </select>
-        </div>
+    <fieldset>
+        <label>Selecione setor</label>
+        <select required name="setor_prod">
+            <?php
+                try {
+                    $sql = "SELECT * FROM setores";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
 
-        <div class="form-group">
-            <label>Preço de custo</label>
-            <input
-                required
-                name="preco_custo"
-                type="text"
-                placeholder="0.0"
-            />
-        </div>
+                    // Obtemos todos os resultados como um array associativo:
+                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        <div class="form-group">
-            <label>Preço de venda</label>
-            <input
-                required
-                name="preco_venda"
-                type="text"
-                placeholder="0.0"
-            />
-        </div>
+                    // Verificando se tem mais de um elemento no array:
+                    if(count($results) > 0){
+                        foreach ($results as $row) {
+                            echo '<option value="' . $row['id_set'] . '">' . $row['nome_set'] . '</option>';
+                        }
+                    } else {
+                        echo '<option value="">Sem resultados disponíveis</option>';
+                    }
+                } catch(PDOException $e) {
+                    echo "Erro ao executar a consulta SQL: " . $e->getMessage();
+                }
+            ?>
+        </select>
+    </fieldset>
 
-        <div class="form-group">
-            <label>Quantidade de caixas de estoque</label>
-            <input
-                required
-                name="quantidade_estoque"
-                type="number"
-                placeholder="Apenas números"
-            />
-        </div>
+    <fieldset>
+        <label>Preço de custo</label>
+        <input
+            required
+            name="custo_prod"
+            type="text"
+            placeholder="0.0"
+        />
+    </fieldset>
 
-        <button
-            type="submit"
-        >
-            Salvar produto
-        </button>
-    </form>
-</div>
+    <fieldset>
+        <label>Preço de venda</label>
+        <input
+            required
+            name="venda_prod"
+            type="text"
+            placeholder="0.0"
+        />
+    </fieldset>
+
+    <fieldset>
+        <label>Quantidade de caixas de estoque</label>
+        <input
+            required
+            name="estoque_prod"
+            type="number"
+            placeholder="Apenas números"
+        />
+    </fieldset>
+
+    <button type="submit">Salvar produto</button>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        // Impedindo o envio padrão do formulário:
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        fetch('src/save.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('successModal').style.display = 'block';
+
+            // Para depuração caso dê xabu:
+            // console.log(data);
+        })
+        .catch(error => console.error('Erro:', error));
+    });
+});
+</script>

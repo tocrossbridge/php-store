@@ -1,5 +1,4 @@
 <?php
-    include "src/config.php";
     $products = $conn->query('SELECT * FROM produtos');
 ?>
 
@@ -15,21 +14,11 @@
     <?php
         foreach($products as $product) {
             echo "<tr style='text-align: center'>";
-                echo "<td>";
-                    print_r($product[1]);
-                echo "</td>";
-                echo "<td>";
-                    print_r($product[2]);
-                echo "</td>";
-                echo "<td>";
-                    print_r($product[3]);
-                echo "</td>";
-                echo "<td>";
-                    print_r($product[4]);
-                echo "</td>";
-                echo "<td>";
-                    print_r($product[5]);
-                echo "</td>";
+                echo "<td>".$product["nome_prod"]."</td>";
+                echo "<td>" . $product['setor_prod'] . "</td>";
+                echo "<td>" . $product['custo_prod'] . "</td>";
+                echo "<td>" . $product['venda_prod'] . "</td>";
+                echo "<td>" . $product['estoque_prod'] . "</td>";
             echo "</tr>";
         }
     ?>

@@ -1,9 +1,9 @@
 body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     font-size: 1.1rem;
-    background-color: #e0e4ff;
+    background-color: #afafaf;
 }
 
 button {
@@ -20,24 +20,35 @@ form {
     display: block;
 }
 
+legend {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.8vh 0;
+}
+
+fieldset {
+    display: grid;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+label {
+    font-weight: 700;
+}
+
 input {
     width: 350px;
     padding: 10px;
     margin: 10px 0;
-    border: none;
+    border: 1px solid lightgray;
     border-radius: 8px;
 }
 
 select {
     width: 370px;
     padding: 10px;
-    border: none;
+    border: 1px solid lightgray;
     border-radius: 8px;
-}
-
-.form-group {
-    display: grid;
-    margin: 10px 0;
 }
 
 header {
@@ -50,26 +61,22 @@ header {
 
 main {
     display: flex;
-    padding: 10%;
+    justify-content: space-evenly;
+    padding: 50px;
 }
 
 aside {
-    margin: 0 5% 0 0;
-}
-
-.aside__intro-div {
-    width: 400px;
-    padding: 20px;
-    background-color: #a6b2ff;
-    color: #212121;
-}
-
-#registerForm {
-    background-color: #a6b2ff;
+    padding: 20px 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 10px 10px #8888886b;
 }
 
 article {
-    margin: 0 5% 0 0;
+    padding: 20px 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 10px 10px #8888886b;
 }
 
 footer {
@@ -103,4 +110,41 @@ thead > tr > th {
 
 tbody > tr > td {
     border: 1px solid lightgrey;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
